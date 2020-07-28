@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cdsupdater
+  namespace: cds
+spec:
+  selector:
+    matchLabels:
+      app: cdsupdater
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cdsupdater
+    spec:
+      containers:
+        - name: nginx
+          image: image-registry.openshift-image-registry.svc:5000/cds/cdsupdater:latest
+          imagePullPolicy: Always

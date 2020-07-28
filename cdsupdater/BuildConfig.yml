@@ -1,0 +1,22 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: cdsupdater
+  namespace: cds
+  
+spec:
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  source:
+    git:
+      uri: https://github.com/yuu-ymt/rhocp-demo-cdsupdater.git
+      ref: master
+    type: Git
+    
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'cdsupdater:latest'
+  triggers:
+    - type: ConfigChange
