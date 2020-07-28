@@ -19,4 +19,14 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          volumeMounts:
+            - mountPath: "/cds"
+              name: "pvol"
+      
+      volumes:
+        - name: "pvol"
+          persistentVolumeClaim:
+            claimName: cds-nfs-rwx-1g-pvc
+
+
 
