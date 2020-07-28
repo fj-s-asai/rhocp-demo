@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontweb
+spec:
+  selector:
+    matchLabels:
+      app: frontweb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontweb
+    spec:
+      containers:
+        - name: frontweb
+          image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+
