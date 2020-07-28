@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cds
+  namespace: cds
+spec:
+  selector:
+    matchLabels:
+      app: cds
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cds
+    spec:
+      containers:
+        - name: nginx
+          image: image-registry.openshift-image-registry.svc:5000/cds/cds:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+
