@@ -21,6 +21,7 @@ https://github.com/yuu-ymt/rhocp-demo.git
 
 ■コードを編集するには、以下のリポジトリをcloneする。
 
+======================== openshift:demoプロジェクト
 
 - rhocp-demo-frontweb  :  frontwebコンテナ用
 
@@ -73,6 +74,44 @@ https://github.com/yuu-ymt/rhocp-demo-nginx.git
 ・Dockerfile    ==> Dockerビルド用
 
 
+==> これは使わないかも。
+
+
+
+===========================  openshift: cdsプロジェクト（固定）
+
+- rhocp-demo-cds   :  画像共有サーバ（nginx）
+
+https://github.com/yuu-ymt/rhocp-demo-cds.git
+
+・Dockerfile   => Dockerビルド用
+
+
+- rhocp-demo-cdsupdater  :  NFS-PVコンテンツのアップデータ（コマンド）
+
+https://github.com/yuu-ymt/rhocp-demo-cdsupdater.git
+
+
+・Dockerfile   ==> Dockerビルド用
+
+
+- rhocp-demo-contents  :  画像ファイルなどのコンテンツ
+
+https://github.com/yuu-ymt/rhocp-demo-contents.git
+
+
+・images　　　==> 画像ファイルの格納
+・videos      ==> 動画ファイルの格納　（今回動画使用しない）
+
+
+
+
+
+
+
+
+
+
 
 ■その他
 
@@ -91,6 +130,33 @@ https://github.com/yuu-ymt/rhocp-demo-nginx.git
 
 
 ・プロジェクト名は、とりあえず"demo"でまずは決め打ちとする。
+
+
+
+
+・画像ファイルについてはサービスメッシュの環境から抜きたいため、別プロジェクトで、
+　CDSサーバ（nginx）をたてて、そこから画像ファイルを供給する仕組みとする。
+　※HTMLからは、絶対パスによりこのCDSサーバのRouteで作成したURLを指定する仕組みとする。
+
+・CDSプロジェクトは、アプリからURLが指定されるため、プロジェクト名は基本、固定とする（cds）
+
+・画像ファイル自体はGit上で管理するものとする。
+
+・cdsサーバは、nginxで作成し、NFSによりボリュームをマウントし画像ファイルを供給する。
+
+・cdsupdateも同一のNFSボリュームをマウントし、任意のタイミングでgit pull することで、
+　PVボリューム内のファイルを最新化する。
+
+・cdsudpateは、常駐型のサーバアプリである必要はなく、git pullが終了したら消滅するコンテナであればよい。
+
+・Git上で保管されている画像ファイルに追加や更新があった場合は、そこからパイプラインでcdsupdateを起動し、
+　共有NFSボリュームをUpdateする仕組みを見せたい。
+
+・cdsの仕組みは、「CDNサーバ」の代替の位置づけ。
+　SOEアプリを想定し、一時プロモーションやキャンペーンを想定し動的コンテンツや商品画像などのコンテンツ供給をストレスフリーで提供する仕組みとしてCDNというものがある・・・という紹介の位置づけ。
+
+
+
 
 
 
