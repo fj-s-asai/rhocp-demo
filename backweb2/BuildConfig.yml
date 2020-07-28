@@ -1,0 +1,20 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: backweb2
+spec:
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  source:
+    git:
+      uri: https://github.com/yuu-ymt/rhocp-demo-backweb2.git
+      ref: master
+    type: Git
+    
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'backweb2:latest'
+  triggers:
+    - type: ConfigChange

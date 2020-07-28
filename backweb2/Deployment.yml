@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backweb2
+spec:
+  selector:
+    matchLabels:
+      app: backweb2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backweb2
+    spec:
+      containers:
+        - name: backweb2
+          image: image-registry.openshift-image-registry.svc:5000/demo/backweb2:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+
