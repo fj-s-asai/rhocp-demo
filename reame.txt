@@ -1,0 +1,101 @@
+
+
+■rhocp-demo  :  デモリポジトリ
+
+https://github.com/yuu-ymt/rhocp-demo.git
+
+
+・まず最初にこのリポジトリをクローンし、本ファイルを含め情報を入手する。
+
+
+・OpenShift用の各種YAMLファイルを格納しておく。
+　※２週間に一度、再構築する必要があるため。
+
+・コンテナ用リソース（ImageStream、BuildConfig等）は、コンテナ毎にフォルダに格納する。
+  - frontweb
+  - backweb1
+  - backweb2
+  - nodebase
+  - mysql
+
+
+■コードを編集するには、以下のリポジトリをcloneする。
+
+
+- rhocp-demo-frontweb  :  frontwebコンテナ用
+
+https://github.com/yuu-ymt/rhocp-demo-frontweb.git
+
+・Dockerfile    => Dockerビルド用
+・その他各種アプリ用ファイル
+
+
+
+- rhocp-demo-backweb1  :  backweb1コンテナ用
+
+https://github.com/yuu-ymt/rhocp-demo-backweb1.git
+
+・Dockerfile    => Dockerビルド用
+・その他各種アプリ用ファイル
+
+
+
+- rhocp-demo-backweb2  :  backweb2コンテナ用
+
+https://github.com/yuu-ymt/rhocp-demo-backweb2.git
+
+
+・Dockerfile    => Dockerビルド用
+・その他各種アプリ用ファイル
+
+
+
+- rhocp-demo-base-node  :  webアプリ用ベースイメージ
+
+https://github.com/yuu-ymt/rhocp-demo-base-node.git
+
+・Dockerfile    ==> Dockerビルド用
+
+
+
+- rhocp-demo-mysql  :  mysql用イメージ
+
+https://github.com/yuu-ymt/rhocp-demo-mysql.git
+
+
+・Dockerfile    ==> Dockerビルド用
+
+
+- rhocp-demo-nginx  :  nginx用イメージ
+
+https://github.com/yuu-ymt/rhocp-demo-nginx.git
+
+・Dockerfile    ==> Dockerビルド用
+
+
+
+■その他
+
+
+・アプリ用ソースGitリポジトリとDockerfileを格納するGitリポジトリは一つのリポジトリに集約した。
+　※リポジトリが多くなりすぎるため。
+　
+・各アプリ（fronweb、backweb1、backweb2）は、共通のベースイメージを参照する内容とする。
+　そのため、DockerfileのFromにImageRegistryのURLを記載する必要があり、プロジェクト名などが直書き
+　になってしまう。
+　
+　
+　==> 現在、アプリケーションイメージを作成するためのDockerfileはGitにファイルとして配置しているが、
+　　　この後のパイプラインを考えるとひょっとしたら、BuildConfigのインライン形式にするかもしれない。
+　　　--> ここはまだ未定。（とりあえずまずはDockerfileをGitに置くスタイルで）
+
+
+・プロジェクト名は、とりあえず"demo"でまずは決め打ちとする。
+
+
+
+
+
+
+
+
