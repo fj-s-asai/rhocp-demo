@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: frontweb
+  name: basenode
 spec:
   strategy:
     type: Docker
