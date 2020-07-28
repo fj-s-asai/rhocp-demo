@@ -1,0 +1,20 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: mysql
+spec:
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  source:
+    git:
+      uri: https://github.com/yuu-ymt/rhocp-demo-mysql.git
+      ref: master
+    type: Git
+    
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'mysql:latest'
+  triggers:
+    - type: ConfigChange
