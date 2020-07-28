@@ -17,3 +17,10 @@ spec:
         - name: nginx
           image: image-registry.openshift-image-registry.svc:5000/cds/cdsupdater:latest
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: "/cds"
+              name: "pvol"
+      volumes:
+        - name: "pvol"
+          persistentVolumeClaim:
+            claimName: cds-nfs-rwx-1g-pvc
