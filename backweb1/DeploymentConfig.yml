@@ -1,0 +1,20 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: backweb1
+spec:
+  selector:
+    app: backweb1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backweb1
+    spec:
+      containers:
+        - name: backweb1
+          image: image-registry.openshift-image-registry.svc:5000/demo/backweb1:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+
