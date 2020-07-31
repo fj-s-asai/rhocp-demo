@@ -15,6 +15,6 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'mysql:latest'
+      name: 'mysql:1.0'
   triggers:
     - type: ConfigChange

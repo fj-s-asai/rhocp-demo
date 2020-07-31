@@ -1,0 +1,36 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: mysql
+spec:
+  selector:
+    app: mysql
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: image-registry.openshift-image-registry.svc:5000/demo/mysql:1.0
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: "/var/lib/mysql/data"
+              name: "pvol" 
+          ports:
+            - containerPort: 3306
+      volumes:
+        - name: "pvol"
+          persistentVolumeClaim: 
+            claimName: pvc-mysql-data-vol
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        from:
+          kind: "ImageStreamTag"
+          name: "mysql:1.0"
+        containerNames:
+          - "mysql"
+          
