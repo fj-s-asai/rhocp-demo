@@ -78,6 +78,14 @@ https://github.com/yuu-ymt/rhocp-demo-nginx.git
 
 
 
+- rhocp-demo-restdb
+
+https://github.com/yuu-ymt/rhocp-demo-restdb.git
+
+・Dockerfile    ==> Dockerビルド用
+
+
+
 ===========================  openshift: cdsプロジェクト（固定）
 
 - rhocp-demo-cds   :  画像共有サーバ（nginx）
