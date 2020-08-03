@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: backweb2
-  namespace: demo
   labels:
     app: backweb2
     service: backweb2
@@ -13,9 +12,7 @@ spec:
       port: 8080
       targetPort: 8080
   selector:
-    app: frontweb
+    app: backweb2
   type: ClusterIP
   sessionAffinity: None
-status:
-  loadBalancer: {}
 
