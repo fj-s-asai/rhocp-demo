@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: restdb-1.0
-         image: image-registry.openshift-image-registry.svc:5000/demo/restdb:1.0
+          image: image-registry.openshift-image-registry.svc:5000/demo/restdb:1.0
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
@@ -34,4 +34,4 @@ spec:
           kind: "ImageStreamTag"
           name: "restdb:1.0"
         containerNames:
-          - "restdb"
+          - "restdb-1.0"

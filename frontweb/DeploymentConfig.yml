@@ -19,7 +19,7 @@ spec:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - name: frontweb-v1
+        - name: frontweb-1.0
           image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.0
           ports:
             - containerPort: 8080
@@ -33,4 +33,4 @@ spec:
           kind: "ImageStreamTag"
           name: "frontweb:1.0"
         containerNames:
-          - "frontweb"
+          - "frontweb-1.0"

@@ -33,4 +33,4 @@ spec:
           kind: "ImageStreamTag"
           name: "backweb1:1.0"
         containerNames:
-          - "backweb1"
+          - "backweb1-1.0"
