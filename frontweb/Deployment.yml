@@ -13,7 +13,6 @@ spec:
       version: 1.0
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: frontweb
         version: 1.0
@@ -22,8 +21,7 @@ spec:
     spec:
       containers:
         - name: frontweb-1.0
-          image: >-
-            image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.0
+          image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.0
           ports:
             - containerPort: 8080
               protocol: TCP
