@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
 metadata:
   name: cdsupdater
 spec:
@@ -15,16 +15,22 @@ spec:
         - name: cds
           image: image-registry.openshift-image-registry.svc:5000/cds/cdsupdater:1.0
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
           volumeMounts:
             - mountPath: "/demo"
-              name: "pvol"
-      
+              name: "pvol" 
+          ports:
+            - containerPort: 8080
       volumes:
         - name: "pvol"
-          persistentVolumeClaim:
+          persistentVolumeClaim: 
             claimName: pvc-cds-data-vol
-
-
-
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        from:
+          kind: "ImageStreamTag"
+          name: "cdsupdater:1.0"
+        containerNames:
+          - "cdsupdater"
+          

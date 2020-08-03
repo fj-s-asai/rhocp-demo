@@ -2,7 +2,6 @@ kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
   name: cdsupdater
-  namespace: cds
   
 spec:
   strategy:
@@ -17,6 +16,6 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'cdsupdater:latest'
+      name: 'cdsupdater:1.0'
   triggers:
     - type: ConfigChange
