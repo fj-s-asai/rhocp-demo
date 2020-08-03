@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: frontweb
-  namespace: demo
   labels:
     app: frontweb
     service: frontweb
@@ -16,7 +15,5 @@ spec:
     app: frontweb
   type: ClusterIP
   sessionAffinity: None
-status:
-  loadBalancer: {}
 
 
