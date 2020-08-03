@@ -17,6 +17,6 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'cds:latest'
+      name: 'cds:1.0'
   triggers:
     - type: ConfigChange
