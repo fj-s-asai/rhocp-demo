@@ -170,6 +170,11 @@ https://github.com/yuu-ymt/rhocp-demo-contents.git
 
 OCクライアント端末上において、以下を実行する。
 
+
+※Istioがインストールされ、"demo"プロジェクトがサービスメッシュの対象になっていることが前提。
+※この手順（demoプロジェクトをサービスメッシュ対象にする）については、別途手順書を参照。
+
+
 1) 以下のコマンドで、GITからリソースを取得する。
 
 https://github.com/yuu-ymt/rhocp-demo.git

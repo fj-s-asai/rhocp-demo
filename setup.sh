@@ -28,8 +28,6 @@ oc apply -f ./backweb2/Deployment.yml
 oc apply -f ./backweb2/Service.yml
 
 
-
-
 # mysql   ------------------------------------------
 oc apply -f ./mysql/ImageStream.yml
 oc apply -f ./mysql/pvc.yml
