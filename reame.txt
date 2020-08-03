@@ -166,6 +166,51 @@ https://github.com/yuu-ymt/rhocp-demo-contents.git
 
 
 
+■セットアップ
+
+OCクライアント端末上において、以下を実行する。
+
+1) 以下のコマンドで、GITからリソースを取得する。
+
+https://github.com/yuu-ymt/rhocp-demo.git
+
+
+2) カレントディレクトリを変更する。
+
+cd rhocp-demo
+
+3) setup.shを実行する。
+
+chmod +x setup.sh
+./setup.sh
+
+
+------
+
+
+4) mysqlの初期セットアップを行う。
+
+GUIコンソールからmysqlコンテナにTerminal接続を行う。
+
+以下のコマンドを実行する。
+
+./initialize.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
