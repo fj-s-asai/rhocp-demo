@@ -8,6 +8,6 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: demo-mysql
+  storageClassName: gp2
   volumeMode: Filesystem
   
