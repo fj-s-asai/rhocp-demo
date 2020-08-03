@@ -49,8 +49,8 @@ oc apply -f ./mysql/Service.yml
 # restdb  ------------------------------------------
 oc apply -f ./restdb/ImageStream.yml
 oc apply -f ./restdb/BuildConfig.yml
-#oc apply -f ./restdb/Deployment.yml
-oc apply -f ./restdb/DeploymentConfig.yml
+oc apply -f ./restdb/Deployment.yml
+#oc apply -f ./restdb/DeploymentConfig.yml
 oc apply -f ./restdb/Service.yml
 oc apply -f ./restdb/DestinationRule.yml
 
