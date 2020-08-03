@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backweb1
+  name: restdb
 spec:
   selector:
-    app: backweb1
+    app: restdb
   ports:
     - protocol: TCP
       port: 8080

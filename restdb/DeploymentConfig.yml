@@ -1,20 +1,29 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: backweb1
+  name: restdb
 spec:
   selector:
-    app: backweb1
+    app: restdb
   replicas: 1
   template:
     metadata:
       labels:
-        app: backweb1
+        app: restdb
     spec:
       containers:
-        - name: backweb1
-          image: image-registry.openshift-image-registry.svc:5000/demo/backweb1:latest
+        - name: restdb
+          image: image-registry.openshift-image-registry.svc:5000/demo/restdb:1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
 
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        from:
+          kind: "ImageStreamTag"
+          name: "restdb:1.0"
+        containerNames:
+          - "restdb"
