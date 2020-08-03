@@ -59,23 +59,14 @@ https://github.com/yuu-ymt/rhocp-demo-base-node.git
 
 
 
+
+
 - rhocp-demo-mysql  :  mysql用イメージ
 
 https://github.com/yuu-ymt/rhocp-demo-mysql.git
 
 
 ・Dockerfile    ==> Dockerビルド用
-
-
-- rhocp-demo-nginx  :  nginx用イメージ
-
-https://github.com/yuu-ymt/rhocp-demo-nginx.git
-
-・Dockerfile    ==> Dockerビルド用
-
-
-==> これは使わないかも。
-
 
 
 - rhocp-demo-restdb
