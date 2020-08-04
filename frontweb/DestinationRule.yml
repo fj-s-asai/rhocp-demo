@@ -5,6 +5,6 @@ metadata:
 spec:
   host: frontweb
   subsets:
-  - name: v10
+  - name: v1
     labels:
       version: v10
