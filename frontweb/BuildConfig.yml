@@ -15,6 +15,6 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'frontweb:v10'
+      name: 'frontweb:1.0'
   triggers:
     - type: ConfigChange
