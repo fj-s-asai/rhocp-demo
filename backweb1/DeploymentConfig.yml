@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: backweb1-v10
-          image: image-registry.openshift-image-registry.svc:5000/demo/backweb1:v10
+          image: image-registry.openshift-image-registry.svc:5000/demo/backweb1:1.0
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -31,6 +31,6 @@ spec:
         automatic: true
         from:
           kind: "ImageStreamTag"
-          name: "backweb1:v10"
+          name: "backweb1:1.0"
         containerNames:
           - "backweb1-v10"
