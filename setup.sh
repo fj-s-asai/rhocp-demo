@@ -32,9 +32,6 @@ oc apply -f ./backweb1/Deployment_v11.yml
 #oc apply -f ./backweb1/DeploymentConfig_v11.yml
 
 
-
-
-
 # backweb2 ------------------------------------------
 oc apply -f ./backweb2/ImageStream.yml
 oc apply -f ./backweb2/BuildConfig.yml
