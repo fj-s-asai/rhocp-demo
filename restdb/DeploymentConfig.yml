@@ -23,6 +23,7 @@ spec:
           image: image-registry.openshift-image-registry.svc:5000/demo/restdb:1.0
           ports:
             - containerPort: 8080
+              protocol: TCP
           imagePullPolicy: Always
 
   triggers:
