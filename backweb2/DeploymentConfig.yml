@@ -1,26 +1,26 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: backweb2-1.0
+  name: backweb2-v10
   labels:
     app: backweb2
-    version: 1.0
+    version: v10
 spec:
   replicas: 1
   selector:
     app: backweb2
-    version: 1.0
+    version: v10
   template:
     metadata:
       labels:
         app: backweb2
-        version: 1.0
+        version: v10
       annotations:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - name: backweb2-1.0
-          image: image-registry.openshift-image-registry.svc:5000/demo/backweb2:1.0
+        - name: backweb2-v10
+          image: image-registry.openshift-image-registry.svc:5000/demo/backweb2:v10
           ports:
             - containerPort: 8080
               protocol: TCP
@@ -31,6 +31,6 @@ spec:
         automatic: true
         from:
           kind: "ImageStreamTag"
-          name: "backweb2:1.0"
+          name: "backweb2:v10"
         containerNames:
-          - "backweb2-1.0"
+          - "backweb2-v10"
