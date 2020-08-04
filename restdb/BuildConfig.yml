@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  name: restdb
+  name: restdb-v10
 spec:
   strategy:
     type: Docker

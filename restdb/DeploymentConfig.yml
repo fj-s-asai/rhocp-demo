@@ -1,26 +1,26 @@
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
 metadata:
-  name: restdb-1.0
+  name: restdb-v10
   labels:
     app: restdb
-    version: 1.0
+    version: v10
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: restdb
-      version: 1.0
+      version: v10
   template:
     metadata:
       labels:
         app: restdb
-        version: 1.0
+        version: v10
       annotations:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - name: restdb-1.0
+        - name: restdb-v10
           image: image-registry.openshift-image-registry.svc:5000/demo/restdb:1.0
           ports:
             - containerPort: 8080
@@ -34,4 +34,4 @@ spec:
           kind: "ImageStreamTag"
           name: "restdb:1.0"
         containerNames:
-          - "restdb-1.0"
+          - "restdb-v10"
