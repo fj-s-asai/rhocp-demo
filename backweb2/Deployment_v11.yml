@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backweb2-v11
+  labels:
+    app: backweb2
+    version: v11
+spec:
+  replicas: 1
+  selector:
+    matchLabels:    
+      app: backweb2
+      version: v11
+  template:
+    metadata:
+      labels:
+        app: backweb2
+        version: v11
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: backweb2-v11
+          image: image-registry.openshift-image-registry.svc:5000/demo/backweb2:1.1
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
