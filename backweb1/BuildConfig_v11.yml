@@ -9,7 +9,7 @@ spec:
   source:
     git:
       uri: https://github.com/yuu-ymt/rhocp-demo-backweb1.git
-      ref: v11-branch
+      ref: v11
     type: Git
     
   output:

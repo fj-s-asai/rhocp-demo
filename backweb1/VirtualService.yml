@@ -10,3 +10,8 @@ spec:
     - destination:
         host: backweb1
         subset: v10
+      weight: 20
+    - destination:
+        host: backweb1
+        subset: v11
+      weight: 80
