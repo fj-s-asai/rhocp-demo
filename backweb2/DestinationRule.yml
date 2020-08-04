@@ -5,7 +5,7 @@ metadata:
 spec:
   host: backweb2
   subsets:
-  - name: v10
-    labels:
+  - labels:
       version: v10
+    name: v10
 

@@ -5,6 +5,6 @@ metadata:
 spec:
   host: restdb
   subsets:
-  - name: v10
-    labels:
+  - labels:
       version: v10
+    name: v10
