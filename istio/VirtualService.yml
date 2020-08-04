@@ -11,6 +11,10 @@ spec:
     - match:
         - uri:
             exact: /top
+        - uri:
+            exact: /back1
+        - uri:
+            exact: /back2
       route:
         - destination:
             host: frontweb
