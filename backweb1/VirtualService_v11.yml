@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: backweb1
+spec:
+  hosts:
+  - backweb1
+  http:
+  - route:
+    - destination:
+        host: backweb1
+        subset: v10
+      weight: 20
+    - destination:
+        host: backweb1
+        subset: v11
+      weight: 80

@@ -31,6 +31,6 @@ spec:
         automatic: true
         from:
           kind: "ImageStreamTag"
-          name: "backweb1:v11"
+          name: "backweb1:1.1"
         containerNames:
           - "backweb1-v11"
