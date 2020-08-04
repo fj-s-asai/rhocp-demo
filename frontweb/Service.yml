@@ -1,5 +1,5 @@
 kind: Service
-apiVersion: v1
+apiVersion: v10
 metadata:
   name: frontweb
   labels:
