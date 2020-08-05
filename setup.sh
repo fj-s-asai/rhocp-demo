@@ -32,7 +32,7 @@ oc apply -f ./istio/VirtualService.yml
 oc apply -f ./basenode/ImageStream.yml
 oc apply -f ./basenode/BuildConfig.yml
 
-sleep 60
+sleep 120
 
 
 # frontweb  ------------------------------------------
@@ -76,7 +76,7 @@ oc apply -f ./restdb/DestinationRule.yml
 oc apply -f ./restdb/VirtualService.yml
 
 
-sleep 60
+sleep 120
 
 
 #
