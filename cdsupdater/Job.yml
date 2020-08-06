@@ -1,11 +1,10 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: cdsupdater
 spec:
   selector:
     app: cdsupdater
-  replicas: 1
   template:
     metadata:
       labels:
@@ -15,16 +14,11 @@ spec:
         - name: cdsupdater
           image: image-registry.openshift-image-registry.svc:5000/cds/cdsupdater:1.0
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
           volumeMounts:
             - mountPath: "/demo"
               name: "pvol"
-      
       volumes:
         - name: "pvol"
-          persistentVolumeClaim:
+          persistentVolumeClaim: 
             claimName: pvc-cds-data-vol
-
-
-
+      restartPolicy: Never
