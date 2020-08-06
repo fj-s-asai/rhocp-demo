@@ -12,7 +12,7 @@ spec:
         app: cdsupdater
     spec:
       containers:
-        - name: cds
+        - name: cdsupdater
           image: image-registry.openshift-image-registry.svc:5000/cds/cdsupdater:1.0
           imagePullPolicy: Always
           ports:
