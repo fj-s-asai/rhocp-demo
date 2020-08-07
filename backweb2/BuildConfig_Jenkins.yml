@@ -1,0 +1,15 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+ name: "pipeline-backweb2"
+spec:
+  triggers:
+    - github:
+        secret: backweb2
+      type: GitHub
+  source:
+    git:
+      uri: "https://github.com/yuu-ymt/rhocp-demo-backweb2.git"
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: Jenkinsfile
