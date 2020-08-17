@@ -35,7 +35,8 @@ oc apply -f ./cdsupdater/Job.yml
 sleep 30
 
 # cdsupdater  ------------------------------------------
-oc apply -f ./cds/DeploymentConfig.yml.yml
+oc apply -f ./cds/DeploymentConfig.yml
+
 
 
 
