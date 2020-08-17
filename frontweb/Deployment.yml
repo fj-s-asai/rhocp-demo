@@ -22,6 +22,9 @@ spec:
       containers:
         - name: frontweb-v10
           image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.0
+          env:
+            - name: CDS_HOME
+              value: http://cds-cds.apps.cluster-d226.d226.sandbox726.opentlc.com
           ports:
             - containerPort: 8080
               protocol: TCP
