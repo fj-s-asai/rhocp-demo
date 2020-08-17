@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finder-v10
+  labels:
+    app: finder
+    version: v10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:    
+      app: finder
+      version: v10
+  template:
+    metadata:
+      labels:
+        app: finder
+        version: v10
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: finder-v10
+          image: image-registry.openshift-image-registry.svc:5000/demo/finder:1.0
+          env:
+            - name: CDS_HOME
+              value: http://cds-cds.apps.cluster-e8ad.e8ad.sandbox1496.opentlc.com
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+
+

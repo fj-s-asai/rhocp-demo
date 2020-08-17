@@ -1,0 +1,36 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: finder-v10
+  labels:
+    app: finder
+    version: v10
+spec:
+  replicas: 1
+  selector:
+    app: finder
+    version: v10
+  template:
+    metadata:
+      labels:
+        app: finder
+        version: v10
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: finder-v10
+          image: image-registry.openshift-image-registry.svc:5000/demo/finder:1.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        from:
+          kind: "ImageStreamTag"
+          name: "finder:1.0"
+        containerNames:
+          - "finder-v10"
