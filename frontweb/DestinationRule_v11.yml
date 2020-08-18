@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: frontweb
+spec:
+  host: frontweb
+  subsets:
+  - labels:
+      version: v10
+    name: v10
+  - labels:
+      version: v11
+    name: v11

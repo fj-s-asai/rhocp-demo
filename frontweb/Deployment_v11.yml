@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontweb-v11
+  labels:
+    app: frontweb
+    version: v10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:    
+      app: frontweb
+      version: v11
+  template:
+    metadata:
+      labels:
+        app: frontweb
+        version: v11
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: frontweb-v11
+          image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.1
+          env:
+            - name: CDS_HOME
+              value: http://cds-cds.apps.cluster-e8ad.e8ad.sandbox1496.opentlc.com
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+
+

@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: frontweb
+spec:
+  hosts:
+  - frontweb
+  http:
+  - route:
+    - destination:
+        host: frontweb
+        subset: v10
+      weight: 50
+    - destination:
+        host: frontweb
+        subset: v11
+      weight: 50
