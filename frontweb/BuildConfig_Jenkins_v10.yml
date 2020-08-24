@@ -1,15 +1,16 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
- name: "pipeline-frontweb"
+ name: "pipeline-frontweb-v10"
 spec:
   triggers:
     - github:
-        secret: frontweb
+        secret: frontweb10
       type: GitHub
   source:
     git:
       uri: "https://github.com/yuu-ymt/rhocp-demo-frontweb.git"
+      ref: master
   strategy:
     jenkinsPipelineStrategy:
       jenkinsfilePath: Jenkinsfile
