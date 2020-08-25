@@ -8,3 +8,6 @@ spec:
   - labels:
       version: v10
     name: v10
+  - labels:
+      version: v11
+    name: v11
