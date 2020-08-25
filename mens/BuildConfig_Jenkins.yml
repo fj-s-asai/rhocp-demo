@@ -1,0 +1,15 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+ name: "pipeline-mens"
+spec:
+  triggers:
+    - github:
+        secret: mens
+      type: GitHub
+  source:
+    git:
+      uri: "https://github.com/yuu-ymt/rhocp-demo-mens.git"
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: Jenkinsfile

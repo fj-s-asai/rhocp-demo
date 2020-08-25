@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mens-v10
+  labels:
+    app: mens
+    version: v10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:    
+      app: mens
+      version: v10
+  template:
+    metadata:
+      labels:
+        app: mens
+        version: v10
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: mens-v10
+          image: image-registry.openshift-image-registry.svc:5000/demo/mens:1.0
+          env:
+            - name: CDS_HOME
+              value: http://cds-cds.apps.cluster-e8ad.e8ad.sandbox1496.opentlc.com
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+
+

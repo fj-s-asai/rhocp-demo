@@ -1,0 +1,36 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: mens-v10
+  labels:
+    app: mens
+    version: v10
+spec:
+  replicas: 1
+  selector:
+    app: mens
+    version: v10
+  template:
+    metadata:
+      labels:
+        app: mens
+        version: v10
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: mens-v10
+          image: image-registry.openshift-image-registry.svc:5000/demo/mens:1.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        from:
+          kind: "ImageStreamTag"
+          name: "mens:1.0"
+        containerNames:
+          - "mens-v10"

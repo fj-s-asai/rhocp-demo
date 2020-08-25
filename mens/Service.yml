@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mens
+  labels:
+    app: mens
+    service: mens
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: mens
+  type: ClusterIP
+  sessionAffinity: None
+
+

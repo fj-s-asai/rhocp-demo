@@ -1,0 +1,30 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: demo
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - demo-gateway
+  http:
+    - match:
+        - uri:
+            exact: /top
+        - uri:
+            exact: /back1
+        - uri:
+            exact: /back2
+      route:
+        - destination:
+            host: frontweb
+            port:
+              number: 8080
+    - match:
+        - uri:
+            exact: /find
+      route:
+        - destination:
+            host: finder
+            port:
+              number: 8080
