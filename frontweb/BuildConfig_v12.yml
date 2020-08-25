@@ -1,0 +1,20 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: frontweb-v12
+spec:
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  source:
+    git:
+      uri: https://github.com/yuu-ymt/rhocp-demo-frontweb.git
+      ref: v12
+    type: Git
+    
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'frontweb:1.2'
+  triggers:
+    - type: ConfigChange

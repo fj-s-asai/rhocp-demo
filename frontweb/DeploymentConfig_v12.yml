@@ -1,0 +1,37 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: frontweb-v12
+  labels:
+    app: frontweb
+    version: v12
+spec:
+  replicas: 1
+  selector:
+    app: frontweb
+    version: v12
+  template:
+    metadata:
+      labels:
+        app: frontweb
+        version: v12
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: frontweb-v12
+          image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.2
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        from:
+          kind: "ImageStreamTag"
+          name: "frontweb:1.2"
+        containerNames:
+          - "frontweb-v12"
+          
