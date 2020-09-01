@@ -24,7 +24,7 @@ spec:
           image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.2
           env:
             - name: CDS_HOME
-              value: http://cds-cds.apps.cluster-e46d.e46d.sandbox1838.opentlc.com
+              value: http://cds-cds.apps.cluster-4b2f.4b2f.sandbox1284.opentlc.com
           ports:
             - containerPort: 8080
               protocol: TCP
