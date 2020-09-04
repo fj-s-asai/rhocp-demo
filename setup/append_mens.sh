@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#
+# get cds url
+#
+oc project cds
+URL=`oc get route --no-headers | awk '{print $2}'`
+
 
 #
 # demo project ***************************************
@@ -29,12 +35,11 @@ sleep 90
 
 
 # frontweb  -------------------------------------------
-oc apply -f ./mens/Deployment.yml
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/"  ./mens/Deployment.yml | oc apply -f
 
 
 # frontweb  -------------------------------------------
-oc apply -f ./frontweb/Deployment_v12.yml
-
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/"  ./frontweb/Deployment_v12.yml | oc apply -f
 
 
 #

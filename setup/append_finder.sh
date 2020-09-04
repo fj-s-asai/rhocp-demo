@@ -1,12 +1,17 @@
 #!/bin/bash
 
+#
+# get cds url
+#
+oc project cds
+URL=`oc get route --no-headers | awk '{print $2}'`
+
+
 
 #
 # demo project ***************************************
 #
 oc project demo
-
-
 
 
 # finder  ------------------------------------------
@@ -31,11 +36,11 @@ sleep 90
 
 
 # finder  ---------------------------------------------
-oc apply -f ./finder/Deployment.yml
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ./finder/Deployment.yml | oc apply -f
 
 
 # frontweb  -------------------------------------------
-oc apply -f ./frontweb/Deployment_v11.yml
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ./frontweb/Deployment_v11.yml | oc apply -f
 
 
 #

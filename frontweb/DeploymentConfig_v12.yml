@@ -21,6 +21,9 @@ spec:
       containers:
         - name: frontweb-v12
           image: image-registry.openshift-image-registry.svc:5000/demo/frontweb:1.2
+          env:
+            - name: CDS_HOME
+              value: ${{CDS_HOME}}
           ports:
             - containerPort: 8080
               protocol: TCP

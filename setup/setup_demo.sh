@@ -1,10 +1,20 @@
 #!/bin/bash
 
 
+
+#
+# get cds url
+#
+oc project cds
+URL=`oc get route --no-headers | awk '{print $2}'`
+
+
+
 #
 # demo project ***************************************
 #
 oc project demo
+
 
 #
 # service mesh  ======================================
@@ -90,7 +100,7 @@ oc apply -f ./restdb/Deployment.yml
 
 
 # frontweb  -------------------------------------------
-oc apply -f ./frontweb/Deployment.yml
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ./frontweb/Deployment.yml | oc apply -f
 
 
 # backweb1
