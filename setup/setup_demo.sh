@@ -100,7 +100,7 @@ oc apply -f ../restdb/Deployment.yml
 
 
 # frontweb  -------------------------------------------
-sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ../frontweb/Deployment.yml | oc apply -f
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ../frontweb/Deployment.yml | oc apply -f -
 
 
 # backweb1
