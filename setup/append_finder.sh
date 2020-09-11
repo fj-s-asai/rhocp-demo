@@ -36,11 +36,11 @@ sleep 90
 
 
 # finder  ---------------------------------------------
-sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ../finder/Deployment.yml | oc apply -f
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ../finder/Deployment.yml | oc apply -f -
 
 
 # frontweb  -------------------------------------------
-sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ../frontweb/Deployment_v11.yml | oc apply -f
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/" ../frontweb/Deployment_v11.yml | oc apply -f -
 
 
 #

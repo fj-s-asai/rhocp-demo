@@ -35,11 +35,11 @@ sleep 90
 
 
 # frontweb  -------------------------------------------
-sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/"  ../mens/Deployment.yml | oc apply -f
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/"  ../mens/Deployment.yml | oc apply -f -
 
 
 # frontweb  -------------------------------------------
-sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/"  ../frontweb/Deployment_v12.yml | oc apply -f
+sed -e "s/\${{CDS_HOME}}/http:\/\/$URL/"  ../frontweb/Deployment_v12.yml | oc apply -f -
 
 
 #
