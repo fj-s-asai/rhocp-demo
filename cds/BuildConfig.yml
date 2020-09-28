@@ -9,7 +9,7 @@ spec:
     dockerStrategy: {}
   source:
     git:
-      uri: https://github.com/yuu-ymt/rhocp-demo-cds.git
+      uri: https://github.com/fj-s-asai/rhocp-demo-cds.git
       ref: master
     type: Git
     
