@@ -9,7 +9,7 @@ spec:
     dockerStrategy: {}
   source:
     git:
-      uri: https://github.com/yuu-ymt/rhocp-demo-cdsupdater.git
+      uri: https://github.com/fj-s-asai/rhocp-demo-cdsupdater.git
       ref: master
     type: Git
     

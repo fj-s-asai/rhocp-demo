@@ -8,7 +8,7 @@ spec:
     dockerStrategy: {}
   source:
     git:
-      uri: https://github.com/yuu-ymt/rhocp-demo-restdb.git
+      uri: https://github.com/fj-s-asai/rhocp-demo-restdb.git
       ref: master
     type: Git
     

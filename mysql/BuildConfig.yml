@@ -8,7 +8,7 @@ spec:
     dockerStrategy: {}
   source:
     git:
-      uri: https://github.com/yuu-ymt/rhocp-demo-mysql.git
+      uri: https://github.com/fj-s-asai/rhocp-demo-mysql.git
       ref: master
     type: Git
     

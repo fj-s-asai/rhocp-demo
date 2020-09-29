@@ -8,7 +8,7 @@ spec:
     dockerStrategy: {}
   source:
     git:
-      uri: https://github.com/yuu-ymt/rhocp-demo-frontweb.git
+      uri: https://github.com/fj-s-asai/rhocp-demo-frontweb.git
       ref: v12
     type: Git
     

@@ -9,7 +9,7 @@ spec:
       type: GitHub
   source:
     git:
-      uri: "https://github.com/yuu-ymt/rhocp-demo-finder.git"
+      uri: "https://github.com/fj-s-asai/rhocp-demo-finder.git"
   strategy:
     jenkinsPipelineStrategy:
       jenkinsfilePath: Jenkinsfile
